@@ -8,7 +8,31 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <StackPanel x:Name="MainStack" Orientation="Horizontal">
+
+            <Image x:Name="Image" Width="200" Height="200"/>
+
+            <StackPanel x:Name="Controls" Orientation="Vertical" VerticalAlignment="Center">
+
+                <StackPanel x:Name="Labels" Orientation="Horizontal">
+
+                    <TextBlock x:Name="textBlock1" Text="TextBlock"/>
+                    <TextBlock x:Name="textBlock2" Text="TextBlock"/>
+                    <TextBlock x:Name="textBlock3" Text="TextBlock"/>
+                    <TextBlock x:Name="textBlock4" Text="TextBlock"/>
+                    <TextBlock x:Name="textBlock5" Text="TextBlock"/>
+                    <TextBlock x:Name="textBlock6" Text="TextBlock"/>
+                    <StackPanel/>
+
+                    <StackPanel x:Name="Buttons" Orientation="Horizontal">
+
+                        <Button x:Name="pick" Content="Button"/>
+                        <Button x:Name="reset" Content="Button"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
