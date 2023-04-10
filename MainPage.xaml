@@ -10,27 +10,49 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <StackPanel x:Name="MainStack" Orientation="Horizontal">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
 
-            <Image x:Name="Image" Width="200" Height="200"/>
+                <!--Elements to recognize wide screens-->
+                <VisualState x:Name="wideScreen">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="641"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+
+                <!--Elements to recognize narrow screens, and to change the orientation of the outer <StackPanel>-->
+                <VisualState x:Name="narrowScreen">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="MainStack.Orientation" Value="Vertical"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <StackPanel x:Name="MainStack" Orientation="Horizontal" Padding="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Image x:Name="Image" Width="300" Height="200" Source="/Assets/log0.png" Margin="0,0,20,0"/>
 
             <StackPanel x:Name="Controls" Orientation="Vertical" VerticalAlignment="Center">
 
                 <StackPanel x:Name="Labels" Orientation="Horizontal">
 
-                    <TextBlock x:Name="textBlock1" Text="TextBlock"/>
-                    <TextBlock x:Name="textBlock2" Text="TextBlock"/>
-                    <TextBlock x:Name="textBlock3" Text="TextBlock"/>
-                    <TextBlock x:Name="textBlock4" Text="TextBlock"/>
-                    <TextBlock x:Name="textBlock5" Text="TextBlock"/>
-                    <TextBlock x:Name="textBlock6" Text="TextBlock"/>
-                    <StackPanel/>
+                    <TextBlock x:Name="one" Text="..." Margin="15" Width="50" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock x:Name="two" Text="..." Margin="15" Width="50" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock x:Name="three" Text="..." Margin="15" Width="50" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock x:Name="four" Text="..." Margin="15" Width="50" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock x:Name="five" Text="..." Margin="15" Width="50" FontWeight="Bold" FontSize="20"/>
+                    <TextBlock x:Name="six" Text="..." Margin="15" Width="50" FontWeight="Bold" FontSize="20"/>
+                </StackPanel>
 
-                    <StackPanel x:Name="Buttons" Orientation="Horizontal">
+                <StackPanel x:Name="Buttons" Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Center">
 
-                        <Button x:Name="pick" Content="Button"/>
-                        <Button x:Name="reset" Content="Button"/>
-                    </StackPanel>
+                    <Button x:Name="pick" Content="Get My Lucky Numbers" Margin="15" IsEnabled="True" Click="pick_Click"/>
+                    <Button x:Name="reset" Content="Reset" Margin="15" IsEnabled="False" Click="reset_Click"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
